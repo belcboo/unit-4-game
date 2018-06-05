@@ -9,59 +9,101 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-        crossorigin="anonymous">
-    <script src="assets/javascript/game.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-</head>
+        crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=BenchNine|Monoton" rel="stylesheet">
 
-<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+</head>
+<header background="">
+    <div class="card">
+        <div id="header" class="card-header text-center">
+            <h1>Crystals Collectors!</h1>
+        </div>
+    </div>
+
+</header>
+
+<body background="/assets/images/bg.jpg" id="instructions">
+
     <div class="container">
         <div class="row">
             <!--This will works as the layout-->
             <div class="col-xl-12">
                 <div class="row">
-                    <!--This is the start of the body-->
-                    <div class="col-xl-12">
-                        <h1>Crystals Collectors!</h1>
-                    </div>
-                </div>
-                <div class="row"> <!-- This row will hold the instructions-->
-                    <div class="jumbotron col-xl-12">
-                        <p>will be given a random number at the start of the game.
-                            <br>
-                            <br> There are four crystals below. By clicking on a crystal you will add a specific a specific amount
-                            of points to your total score.
-                            <br>
-                            <br> You win the game by matching your total score to random number, you lose the game if your total
-                            score goues above the random number.
-                            <br>
-                            <br> Each time when the game starts, the game will change values of each cristal.</p>
+                    <!-- This row will hold the instructions-->
+                    <div class="jumbotron col-xl-12 mt-5 text-center" id="instructions">
+
+                        <div class="h4">INSTRUCTIONS</div>
+
+
+                        <div>
+                            <strong>- Target Score:</strong> You will be given a random number at the start of the game.</div>
+                        <div>- There are four crystals below. By clicking on a crystal you will add a specific a specific amount
+                            of points to your total score.</div>
+                        <div>- You win the game by matching
+                            <strong>your score</strong> to
+                            <strong>target score</strong>, you lose the game if
+                            <strong>your score</strong> goues above the
+                            <strong>target score</strong>.</div>
+                        <div>- Each time when the game starts, the game will change values of each cristal.</div>
+
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col-xl-12 card-group mx-auto mt-4">
-                        <div class="card">
+                    <div class="card col-xl-6">
+                        <div class="card-body">
+                            <div class="h4 text-center">TARGET SCORE</div>
+                            <div class="text-center" id="targetScore">XX</div>
+                        </div>
+                    </div>
+
+                    <div class="card col-xl-6">
+                        <div>
+                            <div class="h4 text-center" id="score">SCORE</div>
+                            <div class="text-center" id="wins"></div>
+                            <div class="text-center" id="losses"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mt-4">
+
+                    <div class="card-group m-auto">
+                        <div class="card" id="redCrystal">
                             <div class="card-body text-center">
-                                <img src="assets/images/red-crystal.jpg" width="200" height="200">
+                                <img src="assets/images/red-crystal.jpg" width="100" height="100">
                             </div>
                         </div>
-                        <div class="card">
+
+                        <div class="card" id="blueCrystal">
                             <div class="card-body text-center">
-                                <img src="assets/images/blue-crystal.jpg" width="200" height="200">
+                                <img src="assets/images/blue-crystal.jpg" width="100" height="100">
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card" id="yellowCrystal">
                             <div class="card-body text-center">
-                                <img src="assets/images/yellow-crystal.jpg" width="200" height="200">
+                                <img src="assets/images/yellow-crystal.jpg" width="100" height="100">
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card" id="magCrystal">
                             <div class="card-body text-center">
-                                <img src="assets/images/mag-crystal.jpg" width="200" height="200">
+                                <img src="assets/images/mag-crystal.jpg" width="100" height="100">
                             </div>
                         </div>
                     </div>
+
                 </div>
+
+                <div class="row">
+                    <div class="col-xl-12 card mt-4">
+                        <p class="text-center h4" id="yourScore">YOUR SCORE IS:</p>
+                        <p class="text-center" id="currentScore"></p>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
