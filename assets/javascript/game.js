@@ -8,6 +8,8 @@ $(document).ready(function () { //Wait till all the elements are loaded
     // var magCrystal = 0; //Random value asigned to the magenta crystal.
     var wins = 0; //User wins.
     var losses = 0; //User losses.
+    var oldscore = 0;
+    var youroldscore = 0;
 
 
 
@@ -21,7 +23,8 @@ $(document).ready(function () { //Wait till all the elements are loaded
         $("#targetScore").text(targetScore);    //Print the new value for targetScore
         $("#currentScore").text(currentScore);  //Print the new value for currentScore
         $("#wins").text("Wins: "+ wins);        //Print the new value for Score - Wins
-        $("#losses").text("Losses: " + losses); //Print the new value for Score - Losses
+        $("#losses").text("Losses: " + losses); //Print the new value for Score - Losses]
+        $("#yourScore").hide();
 
         console.log(targetScore, crystals[0], crystals[1], crystals[2], crystals[3]); //Cheating
     };
@@ -32,14 +35,29 @@ $(document).ready(function () { //Wait till all the elements are loaded
         $("#currentScore").text(currentScore);
         if (currentScore === targetScore) {
             wins++;
-            alert("Congratulations, You won!");
+            oldscore = targetScore;
+            youroldscore = currentScore;
+            //alert("Congratulations, You won!");
+            $("#result").text("CONGRATULATIONS, YOU WON!!");
+            $("#results2").text("The target score was:  " + oldscore + "  Your score was: " + youroldscore);
             reset();
+
         }
         else if (currentScore > targetScore) { //Evaluates the losser and display message.
-            alert("We're sorry, You Lose!");
+            //alert("We're sorry, You Lose!");
+            oldscore = targetScore;
+            youroldscore = currentScore;
+            $("#result").text("SORRY, YOU LOST!");
+            $("#results2").text("The target score was:  " + oldscore + "  Your score was: " + youroldscore);
             losses++;
             reset();
+        }
+        else if (currentScore > 0){
+            $("#result").text("");
+            $("#results2").text("");
+            $("#yourScore").show();
         };
+
 
         
     };
